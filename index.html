@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            height: 200px;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th class="box"><input type="text" name="t1" ondblclick="match(this)"></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <th class="box"><input type="text" name="t4" ondblclick="match(this)"></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="box"><input type="text" name="t2" ondblclick="match(this)"></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            <th class="box"><input type="text" name="t3" ondblclick="match(this)"></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </table>
+
+    <input type="text" id="userInput">
+    <button onclick="swap()">Submit</button>
+
+    <script>
+
+        function match(inputElement) {
+            let userInput = document.getElementById("userInput").value;
+
+            if (inputElement.value === "") {
+                return false;
+            }
+            else if (inputElement.value === userInput) {
+                alert("value is match");
+            }
+            else {
+                alert("value is not match")
+            }
+        }
+
+        function swap() {
+            let t1 = document.getElementsByName("t1")[0];
+            let t2 = document.getElementsByName("t2")[0];
+            let t3 = document.getElementsByName("t3")[0];
+            let t4 = document.getElementsByName("t4")[0];
+
+            let temp = t1.value;
+            t1.value = t4.value;
+            t4.value = t3.value;
+            t3.value = t2.value;
+            t2.value = temp;
+
+            // let temp = t2.value;
+            // t3.value = t1.value;
+            // t4.value = t3.value;
+            // t2.value = t4.value;
+            // t1.value = temp;
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
